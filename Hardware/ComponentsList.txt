@@ -1,0 +1,31 @@
+Component List
+
+1)Arduino Uno (1x)
+Microcontroller to process input signals and control the system.
+
+2)10k Ohm Potentiometers (3x)
+Used to detect finger movements for Morse code input (dots, dashes, and spaces).
+
+3)NRF24L01 Wireless Module (2x)
+For wireless communication between the transmitter and receiver.
+
+4)Jumper Wires (Multiple)
+For connecting the potentiometers, NRF24L01, and other components to the Arduino.
+
+5)Breadboard (1x)
+For easy prototyping and connecting components during testing.
+
+6)Power Supply (Battery or USB)
+5V power supply (can be from a battery pack or USB connection).
+
+7)Glove (1x)
+A regular glove to mount the potentiometers for detecting finger movements.
+
+8)Resistors (1k Ohm) (Optional)
+Resistors can be added to the potentiometer circuits for more stable readings.
+
+9)OLED Display (Optional)
+For displaying the received Morse code (if you want to add a visual display).
+
+10)Push Button (Optional)
+Additional input for controlling other aspects of the system (e.g., resetting input).
