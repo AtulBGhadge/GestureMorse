@@ -1,7 +1,12 @@
 #include <SPI.h>
 #include <RF24.h>
 
-RF24 radio(9, 10); // CE and CSN pins for NRF24L01
+const int dotPin = A0;  // Input for dot
+const int dashPin = A1; // Input for dash
+const int spacePin = A2; // Input for space
+
+RF24 radio(9, 10); // NRF24L01 CE and CSN pins
+
 const byte address[6] = "00001";
 
 void setup() {
@@ -13,14 +18,25 @@ void setup() {
 }
 
 void loop() {
-  // Placeholder for inputs and actions
-  int signal = analogRead(A0); // Simplified single input pin
+  int dotValue = analogRead(dotPin);
+  int dashValue = analogRead(dashPin);
+  int spaceValue = analogRead(spacePin);
   
-  if (signal > 800) {
-    const char message[] = ".";
-    radio.write(&message, sizeof(message));
-    Serial.println("Signal sent");
+  if (dotValue > 800) {
+    const char text[] = ".";
+    radio.write(&text, sizeof(text));
+    Serial.println("Dot sent");
   }
-
-  delay(500); // Basic delay for signal timing
+  else if (dashValue > 800) {
+    const char text[] = "-";
+    radio.write(&text, sizeof(text));
+    Serial.println("Dash sent");
+  }
+  else if (spaceValue > 800) {
+    const char text[] = " ";
+    radio.write(&text, sizeof(text));
+    Serial.println("Space sent");
+  }
+  
+  delay(500); // Simple delay for signal handling
 }
